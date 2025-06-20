@@ -10,5 +10,5 @@ const openReadmeInEditor = () => fetch('/__open-in-editor?file=README.md')
 </script>
 
 <template>
-  <TipTap></TipTap>
+  <TipTap />
 </template>
