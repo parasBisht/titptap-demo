@@ -5,61 +5,20 @@ import StarterKit from '@tiptap/starter-kit'
 import Color from '@tiptap/extension-color'
 import TextStyle from '@tiptap/extension-text-style'
 import ListItem from '@tiptap/extension-list-item'
-import BulletList from '@tiptap/extension-bullet-list'
-import OrderedList from '@tiptap/extension-ordered-list'
-import Blockquote from '@tiptap/extension-blockquote'
-import CodeBlock from '@tiptap/extension-code-block'
-import HardBreak from '@tiptap/extension-hard-break'
-import HorizontalRule from '@tiptap/extension-horizontal-rule'
-import Heading from '@tiptap/extension-heading'
 
 const editor = shallowRef<Editor>(new Editor({
   extensions: [
     Color.configure({ types: [TextStyle.name, ListItem.name] }),
     TextStyle,
-    StarterKit,
-    BulletList,
-    OrderedList,
-    Blockquote,
-    CodeBlock,
-    HardBreak,
-    HorizontalRule,
-    Heading.configure({ levels: [1, 2, 3, 4, 5, 6] }),
+    StarterKit
   ],
   content: `
-  <h2>
-          Hi there,
-        </h2>
-        <p>
-          this is a <em>basic</em> example of <strong>Tiptap</strong>. Sure, there are all kind of basic text styles you’d probably expect from a text editor. But wait until you see the lists:
-        </p>
-        <ul>
-          <li>
-            That’s a bullet list with one …
-          </li>
-          <li>
-            … or two list items.
-          </li>
-        </ul>
-        <p>
-          Isn’t that great? And all of that is editable. But wait, there’s more. Let’s try a code block:
-        </p>
-        <pre><code class="language-css">body {
-  display: none;
-}</code></pre>
-        <p>
-          I know, I know, this is impressive. It’s only the tip of the iceberg though. Give it a try and click a little bit around. Don’t forget to check the other examples too.
-        </p>
-        <blockquote>
-          Wow, that’s amazing. Good work, boy! 👏
-          <br />
-          — Mom
-        </blockquote>
+    <p>Hi there</p>
+    <p>How are you?</p>
   `,
 }))
 
 onBeforeUnmount(() => {
-  console.log(editor)
   editor.value?.destroy()
 })
 
@@ -99,48 +58,6 @@ const actions = computed(() => [
     label: 'Purple',
     command: () => editor.value?.chain().focus().setColor('#958DF1').run(),
     isActive: editor.value?.isActive('textStyle', { color: '#958DF1' }),
-    disabled: false,
-  },
-  {
-    label: 'H1',
-    command: () => editor.value?.chain().focus().toggleHeading({ level: 1 }).run(),
-    isActive: editor.value?.isActive('heading', { level: 1 }),
-    disabled: false,
-  },
-  {
-    label: 'Bullet List',
-    command: () => editor.value?.chain().focus().toggleBulletList().run(),
-    isActive: editor.value?.isActive('bulletList'),
-    disabled: false,
-  },
-  {
-    label: 'Ordered List',
-    command: () => editor.value?.chain().focus().toggleOrderedList().run(),
-    isActive: editor.value?.isActive('orderedList'),
-    disabled: false,
-  },
-  {
-    label: 'Blockquote',
-    command: () => editor.value?.chain().focus().toggleBlockquote().run(),
-    isActive: editor.value?.isActive('blockquote'),
-    disabled: false,
-  },
-  {
-    label: 'Code Block',
-    command: () => editor.value?.chain().focus().toggleCodeBlock().run(),
-    isActive: editor.value?.isActive('codeBlock'),
-    disabled: false,
-  },
-  {
-    label: 'Horizontal Rule',
-    command: () => editor.value?.chain().focus().setHorizontalRule().run(),
-    isActive: false,
-    disabled: false,
-  },
-  {
-    label: 'Hard Break',
-    command: () => editor.value?.chain().focus().setHardBreak().run(),
-    isActive: false,
     disabled: false,
   },
 ])

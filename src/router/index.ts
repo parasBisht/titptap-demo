@@ -9,6 +9,11 @@ const router = createRouter({
       name: 'home',
       component: HomeView,
     },
+    {
+      path: '/custom-card',
+      name: 'custom-card',
+      component: () => import('../views/CustomCardView.vue'),
+    },
   ],
 })
 

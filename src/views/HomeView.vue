@@ -1,9 +1,7 @@
 <script setup lang="ts">
-import TheWelcome from '../components/TheWelcome.vue'
+import TipTap from '../components/TipTap.vue'
 </script>
 
 <template>
-  <main>
-    <TheWelcome />
-  </main>
+  <TipTap />
 </template>
