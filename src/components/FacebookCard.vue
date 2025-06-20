@@ -1,10 +1,8 @@
-<!-- src/components/FacebookEmbed.vue -->
 <script setup lang="ts">
 import { NodeViewWrapper } from '@tiptap/vue-3'
+import type { NodeViewProps } from '@tiptap/core'
 
-const props = defineProps({
-  node: Object
-})
+defineProps<NodeViewProps>()
 </script>
 
 <template>
